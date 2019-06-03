@@ -11,11 +11,13 @@ Laravel
 
 ## アプリの準備
 
-sampleappディレクトリに以下をクローンする  https://github.com/yagimono/sampleapp
+sampleappディレクトリに以下をクローンする  
+https://github.com/yagimono/sampleapp
 
 ## 環境の準備
 
-1. laradockディレクトリに以下をクローンする  https://github.com/Laradock/laradock
+1. laradockディレクトリに以下をクローンする  
+https://github.com/Laradock/laradock
 
 1. laradockディレクトリ内のenv-exampleファイルをコピーし、.envファイルを作成する
 
@@ -29,7 +31,7 @@ sampleappディレクトリに以下をクローンする  https://github.com/ya
 削除: `"${NGINX_HOST_HTTPS_PORT}:443"`  
 追加: `"443:443"`
 
-1. laradockディレクトリで以下を実行し、コンテナを初期化する(15分ほどかかる)
+1. laradockディレクトリで以下を実行し、コンテナを初期化する(15分ほどかかる)  
 `docker-compose up -d nginx mysql workspace phpmyadmin`
 
 1. 以下にアクセスし、Laravelと大きく表示されればOK  
