@@ -9,11 +9,6 @@ Laravel
 └─sampleapp（アプリ用）
 ```
 
-## アプリの準備
-
-sampleappディレクトリに以下をクローンする  
-https://github.com/yagimono/sampleapp
-
 ## 環境の準備
 
 1. laradockディレクトリに以下をクローンする  
@@ -34,8 +29,21 @@ https://github.com/Laradock/laradock
 1. laradockディレクトリで以下を実行し、コンテナを初期化する(15分ほどかかる)  
 `docker-compose up -d nginx mysql workspace phpmyadmin`
 
-1. 以下にアクセスし、Laravelと大きく表示されればOK  
-http://localhost:8001/
+## アプリの準備
+
+1. sampleappディレクトリに以下をクローンする  
+https://github.com/yagimono/sampleapp
+
+1. laradockディレクトリ内で以下コマンドを実行し、コンテナへログインする  
+`docker-compose exec --user=laradock workspace bash`
+
+1. ログイン後、その場（アプリルート）で以下、3つのコマンドを実行する 
+- `composer install` 
+- `cp -p .env.example .env`  
+- `php artisan key:generate`  
+
+1. ホストOS（ローカルPC）のブラウザで以下にアクセスし、Laravelと大きく表示されればOK  
+   http://localhost:8001/
 
 ## その他のコマンド
 
