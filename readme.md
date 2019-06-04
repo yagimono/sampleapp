@@ -24,12 +24,6 @@ https://github.com/Laradock/laradock
 削除: `MYSQL_VERSION=latest`  
 追加: `MYSQL_VERSION=5.7`
 
-1. docker-compose.ymlファイルの以下を書き換える  
-削除: `"${NGINX_HOST_HTTP_PORT}:80"`  
-追加: `"8001:80"`  
-削除: `"${NGINX_HOST_HTTPS_PORT}:443"`  
-追加: `"443:443"`
-
 1. laradockディレクトリで以下を実行し、コンテナを初期化する(15分ほどかかる)  
 `docker-compose up -d nginx mysql workspace phpmyadmin`
 
