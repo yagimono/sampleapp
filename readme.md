@@ -18,7 +18,11 @@ https://github.com/Laradock/laradock
 
 1. .envファイルの以下を書き換える  
 削除: `APP_CODE_PATH_HOST=../`  
-追加: `APP_CODE_PATH_HOST=../sampleapp`
+追加: `APP_CODE_PATH_HOST=../sampleapp`  
+削除: `NGINX_HOST_HTTP_PORT=80`  
+追加: `NGINX_HOST_HTTP_PORT=8001`  
+削除: `MYSQL_VERSION=latest`  
+追加: `MYSQL_VERSION=5.7`
 
 1. docker-compose.ymlファイルの以下を書き換える  
 削除: `"${NGINX_HOST_HTTP_PORT}:80"`  
@@ -38,9 +42,17 @@ https://github.com/yagimono/sampleapp
 `docker-compose exec --user=laradock workspace bash`
 
 1. ログイン後、その場（アプリルート）で以下、3つのコマンドを実行する 
-- `composer install` 
-- `cp -p .env.example .env`  
-- `php artisan key:generate`  
+`composer install` 
+`cp -p .env.example .env`  
+`php artisan key:generate`  
+
+1. .envファイルの以下を書き換える  
+削除: `DB_HOST=127.0.0.1`  
+追加: `DB_HOST=mysql`  
+削除: `DB_DATABASE=homestead`  
+追加: `DB_DATABASE=default`  
+削除: `DB_USERNAME=homestead`  
+追加: `DB_USERNAME=default`
 
 1. ホストOS（ローカルPC）のブラウザで以下にアクセスし、Laravelと大きく表示されればOK  
    http://localhost:8001/
