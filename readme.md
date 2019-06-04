@@ -35,8 +35,8 @@ https://github.com/yagimono/sampleapp
 1. laradockディレクトリ内で以下コマンドを実行し、コンテナへログインする  
 `docker-compose exec --user=laradock workspace bash`
 
-1. ログイン後、その場（アプリルート）で以下、3つのコマンドを実行する 
-`composer install` 
+1. ログイン後、その場（アプリルート）で以下、3つのコマンドを実行する  
+`composer install`  
 `cp -p .env.example .env`  
 `php artisan key:generate`  
 
