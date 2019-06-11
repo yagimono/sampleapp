@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use App\Person;
+use App\Services\PersonService;
 
 class PeopleController extends Controller
 {
     public function index()
     {
+        $service = new PersonService;
+
         // peopleテーブルから全てのレコードを取得
-        $people = DB::table('people')->get(); // クエリビルダを使用して取得
-        // $people = Person::all(); // Eloquentを使用して取得
+        $people = $service->fetchPeople();
 
         // 各レコードの生年月日から年齢を算出
-        $people = $people->map(function ($person) {
-            $person->age = floor((date('Ymd') - str_replace("-", "", $person->birthday)) / 10000);
+        $people = $people->map(function ($person) use ($service) {
+            $person->age = $service->calculateBirthday($person->birthday);
             return $person;
         });
 
