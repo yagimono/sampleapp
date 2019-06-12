@@ -8,7 +8,7 @@ class PersonService
 {
     public function fetchPeople()
     {
-        $repository = new PersonRepository;
+        $repository = app()->make(PersonRepository::class);
         return $repository->fetchPeople();
     }
 

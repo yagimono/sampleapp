@@ -8,7 +8,7 @@ class PeopleController extends Controller
 {
     public function index()
     {
-        $service = new PersonService;
+        $service = app()->make(PersonService::class);
 
         // peopleテーブルから全てのレコードを取得
         $people = $service->fetchPeople();
