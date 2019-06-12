@@ -6,10 +6,16 @@ use App\Repositories\PersonRepository;
 
 class PersonService
 {
+    private $repository;
+
+    public function __construct(PersonRepository $repository) // ←インジェクション！
+    {
+        $this->repository = $repository;
+    }
+
     public function fetchPeople()
     {
-        $repository = app()->make(PersonRepository::class);
-        return $repository->fetchPeople();
+        return $this->repository->fetchPeople();
     }
 
     public function calculateBirthday(string $birthday): float

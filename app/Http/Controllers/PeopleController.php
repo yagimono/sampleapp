@@ -6,16 +6,21 @@ use App\Services\PersonService;
 
 class PeopleController extends Controller
 {
+    private $service;
+
+    public function __construct(PersonService $service) // ←インジェクション！
+    {
+        $this->service = $service;
+    }
+
     public function index()
     {
-        $service = app()->make(PersonService::class);
-
         // peopleテーブルから全てのレコードを取得
-        $people = $service->fetchPeople();
+        $people = $this->service->fetchPeople();
 
         // 各レコードの生年月日から年齢を算出
-        $people = $people->map(function ($person) use ($service) {
-            $person->age = $service->calculateBirthday($person->birthday);
+        $people = $people->map(function ($person) {
+            $person->age = $this->service->calculateBirthday($person->birthday);
             return $person;
         });
 

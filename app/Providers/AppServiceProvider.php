@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(PersonService::class, function () {
-            return new PersonService();
+        $this->app->bind(PersonService::class, function ($app) {
+            return new PersonService($app->make(PersonRepository::class));
         });
 
         $this->app->bind(PersonRepository::class, function () {
