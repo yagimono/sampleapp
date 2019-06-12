@@ -2,15 +2,14 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\DB;
-use App\Person;
+use App\Repositories\PersonRepository;
 
 class PersonService
 {
     public function fetchPeople()
     {
-        return DB::table('people')->get(); // クエリビルダを使用して取得
-        // return $people = Person::all(); // Eloquentを使用して取得
+        $repository = new PersonRepository;
+        return $repository->fetchPeople();
     }
 
     public function calculateBirthday(string $birthday): float
