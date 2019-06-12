@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Repositories\PersonRepository;
+use App\Repositories\Person\PersonRepository;
 
 class PersonService
 {

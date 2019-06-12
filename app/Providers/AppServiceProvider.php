@@ -5,7 +5,9 @@ namespace App\Providers;
 use App\Services\PersonService;
 use Illuminate\Support\ServiceProvider;
 
-use App\Repositories\PersonRepository;
+use App\Repositories\Person\PersonRepository;
+use App\Repositories\Person\QBPersonRepository;
+use App\Repositories\Person\EQPersonRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,7 +33,8 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(PersonRepository::class, function () {
-            return new PersonRepository();
+            return new QBPersonRepository();
+            // return new EQPersonRepository();
         });
     }
 }
