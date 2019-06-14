@@ -64,3 +64,14 @@ https://github.com/yagimono/sampleapp
 
 - コンテナからログアウト  
 `exit`
+
+## DB関連
+
+- 既存のテーブルを削除し新規作成、また初期データを投入  
+`php artisan migrate:refresh --seed`
+
+- dbの接続情報   
+`ホスト: localhost`  
+`データベース: default`  
+`ユーザ: default`  
+`パスワード: secret`
